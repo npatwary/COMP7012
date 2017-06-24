@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dungeon & Dragons Helper | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body style="margin: 100px 50px 50px 50px;">
+<%= render 'layouts/navigation' if logged_in? %>
+
+<% if flash[:success] %>
+<div class="alert alert-info" role="alert">
+	<p> <%= flash[:success] %></p>
+</div>
+<% end %>
+
+<% if flash[:alert] %>
+<div class="alert alert-warning" role="alert">
+	<p > <%= flash[:alert] %></p>
+</div>
+<% end %>
+
+<% if flash[:warning] %>
+<div class="alert alert-warning" role="alert">
+	<p> <%= flash[:warning] %></p>
+</div>
+<% end %>
+
+<% if flash[:danger] %>
+<div class="alert alert-danger" role="alert">
+	<p> <%= flash[:danger] %></p>
+</div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
